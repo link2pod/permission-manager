@@ -3,11 +3,11 @@ import WebIdLoginForm from "./WebIdForm";
 
 export default function LoginForms() {
   return (
-    <div className="w-full h-full pt-4 drop-shadow-md rounded flex flex-col justify-between">
+    <div className="w-full h-full py-4 bg-base drop-shadow-md rounded flex flex-col justify-between">
       {/**Login forms*/}
       {/**TODO: implement login with webID (if supported) */}
       <div className="p-1 sm:p-4 flex-none overflow-clip">
-        <h1 className="text-3xl text-center">Login with your WebId</h1>
+        <h3 className="text-3xl text-center">Login with your WebId</h3>
         <WebIdLoginForm />
       </div>
       <div className="inset-x-0 flex items-center">
@@ -17,7 +17,7 @@ export default function LoginForms() {
       </div>
 
       <div className="p-1 sm:p-4 h-1/2 flex-auto overflow-clip">
-        <h1 className="text-3xl text-center">Login with an Identity Provider</h1>
+        <h3 className="text-3xl text-center">Login with an Identity Provider</h3>
         <OIDCIssuerForm />
       </div>
     </div>

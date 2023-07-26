@@ -1,9 +1,10 @@
+import LoginForms from "@/components/forms/LoginForms";
 import Link from "next/link";
 import { ReactNode } from "react";
 
 export default function Home() {
   return (
-    <main className="w-full pt-8">
+    <main className="w-full pt-8 sm:w-5/6 md:w-3/4 mx-auto">
       {/**Link to managers */}
       <div className="w-full grid md:grid-cols-2 md:space-x-2 justify-evenly sm:px-2">
         <ManagerCard
@@ -18,6 +19,9 @@ export default function Home() {
         />
       </div>
       {/** Login form if user isn't logged in. Hidden if logged in */}
+      <div className="md:h-80 mx-auto mt-4 h-5/12 pb-4">
+        <LoginForms />
+      </div>
     </main>
   )
 }

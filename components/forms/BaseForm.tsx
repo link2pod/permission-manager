@@ -29,14 +29,14 @@ export function BaseForm(props: {
   return (
     <div className="w-full h-full ">
       <form
-        className="w-full flex"
+        className="w-full sm:flex"
         onSubmit={(e) => { e.preventDefault(); handleSubmit(); }}
       >
         <label
           className="flex-none pr-1 text-lg"
           htmlFor={props.name}
         >
-          {props.label}
+          <div className="text-center">{props.label}</div>
         </label>
         <div className="relative w-full">
           <input
@@ -52,9 +52,9 @@ export function BaseForm(props: {
             ref={inputRef}
           />
           {
-            error && <div className="z-10 absolute w-full h-20 border border-error rounded flex">
-              <BiError className="fill-error" /> 
-              <div className="overflow-auto">
+            error && <div className="z-10 absolute w-full h-10 border border-error rounded grid grid-cols-12">
+              <BiError className="fill-error w-full h-full" />
+              <div className="overflow-auto col-span-11">
                 {error}
               </div>
             </div>
