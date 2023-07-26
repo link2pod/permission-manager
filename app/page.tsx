@@ -1,3 +1,4 @@
+import ShowIfSession from "@/components/ShowIfSession";
 import LoginForms from "@/components/forms/LoginForms";
 import Link from "next/link";
 import { ReactNode } from "react";
@@ -19,9 +20,11 @@ export default function Home() {
         />
       </div>
       {/** Login form if user isn't logged in. Hidden if logged in */}
-      <div className="md:h-80 mx-auto mt-4 h-5/12 pb-4">
-        <LoginForms />
-      </div>
+      <ShowIfSession showIfNotSession={true}>
+        <div className="md:h-80 mx-auto mt-4 h-5/12 pb-4">
+          <LoginForms />
+        </div>
+      </ShowIfSession>
     </main>
   )
 }
