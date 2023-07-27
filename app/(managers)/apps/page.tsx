@@ -1,4 +1,5 @@
 
 export default function AppsManagerPage(){
-  return (<div>App Page</div>)
+  return (<div>App Page
+  </div>)
 }
