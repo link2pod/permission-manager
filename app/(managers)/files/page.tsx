@@ -1,6 +1,6 @@
 import Browser from '@/components/browser/Browser'
 import ContentPreview from '@/components/ContentPreview'
-import ResourcePermissionsDisplay from '@/components/ResourcePermissionsDisplay'
+import ResourcePermissionsDisplay from '@/components/permissions/ResourcePermissionsDisplay'
 
 export default function Home() {
 
