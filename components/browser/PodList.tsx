@@ -4,7 +4,7 @@ import { getRootContainer } from "@/lib/utilities/getRootContainer"
 import { getPodUrlAllFrom, getProfileAll } from "@inrupt/solid-client"
 import { useSession } from "@inrupt/solid-ui-react"
 import useSWR from 'swr'
-import ResourceItem from "./BrowserItem"
+import ContainerDropdown from "./ContainerDropdown"
 
 export default function PodList() {
   const { session } = useSession()
@@ -28,7 +28,7 @@ export default function PodList() {
     { revalidateIfStale: false, revalidateOnFocus: false }
   )
 
-  if (!webId) return <>WebId not found. Try refreshing the page <Ipsum /></>
+  if (!webId) return <>WebId not found. Try refreshing the page </>
   // get the rootStorages from the profileAll (null if profileAll is null) 
   const listedPods = profileAll ? getPodUrlAllFrom(profileAll, webId) : null
 
@@ -43,10 +43,9 @@ export default function PodList() {
   return (
     <div className="w-full" >
       {podsToDisplay.map((podIRI) =>
-        <ResourceItem 
-          resourceIRI={podIRI} 
+        <ContainerDropdown
+          IRI={podIRI} 
           depth={0} 
-          isContainer={true}
         />
       )}
     </div>

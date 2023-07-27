@@ -7,26 +7,20 @@ import useSolidDataset from "@/lib/hooks/useSolidDataset"
 import { useState } from "react"
 import { Menu } from "@headlessui/react"
 import Dropdown from "./Dropdown"
-import { getContainerUrlPostfix } from "@/lib/utilities/getContainerUrlPostfix"
+import ItemText from "./ItemText"
 import BrowserItem from "./BrowserItem"
 
 export default function ContainerDropdown(props: {
-    containerIRI: string,
+    IRI: string,
     depth: number,
 }) {
-    const containerIRI = props.containerIRI
+    const containerIRI = props.IRI
     const [open, setOpen] = useState(false)
     const { session } = useSession()
 
     const { data: containerDataset, isLoading, error, isValidating }
         = useSolidDataset(open ? containerIRI : null,
             { inruptConfig: { fetch: session.fetch } })
-
-    /**
-const { data: containerDataset, isLoading, error, isValidating }
-= {data:undefined, isLoading: true, error: false, isValidating: false}
-     * 
-     */
 
     const handleToggleDropdown = () => {
         setOpen(!open)
@@ -43,11 +37,7 @@ const { data: containerDataset, isLoading, error, isValidating }
                         <Menu.Button />
                     </Dropdown.Button>
                 </div>
-                <div className="overflow-clip" >
-                    <p className="text-clip sm:truncate">
-                        {getContainerUrlPostfix(containerIRI).substring(1)}
-                    </p>
-                </div>
+                <ItemText IRI={containerIRI} isContainer={true}/>
             </div>
             <Dropdown.Body
                 isOpen={open} showLinedrop
@@ -63,7 +53,7 @@ const { data: containerDataset, isLoading, error, isValidating }
                             const containedThing = getThing(containerDataset, containedThingIRI)
                             if (!containedThing) { return null }
                             return <BrowserItem
-                                resourceIRI={containedThingIRI}
+                                IRI={containedThingIRI}
                                 key={containedThingIRI}
                                 depth={props.depth + 1}
                                 isContainer={isContainer(containedThing)}
