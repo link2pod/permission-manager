@@ -1,13 +1,12 @@
+import getUrlPostfix from "./getUrlPostfix";
+
 /**
  * 
  * @param url container's url 
  * @returns postfix of url
  */
 export function getContainerUrlPostfix(url: string) {
-    // cut trailing '/'
-    let startindex = url.length - 1;
-    // decrement startindex until url[startindex] is a '/'
-    while (startindex > 0 && url[startindex] !== '/') --startindex
-    return url.substring(startindex)
+    // ignore trailing '/' and call getUrlPostfix, then add '/' back
+    return getUrlPostfix(url.substring(0,url.length-1)) + '/'
 }
 

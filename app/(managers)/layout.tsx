@@ -7,7 +7,9 @@ export default function ManagerLayout(props: {
 }) {
   return (
     <>
-      {props.children}
+      <div className="fixed inset-0">
+        {props.children}
+      </div>
       <ShowIfSession showIfNotSession={true}>
         <AuthModal />
       </ShowIfSession>

@@ -16,7 +16,7 @@ import { getDefaultSession } from '@inrupt/solid-client-authn-browser'
  * @link https://swr.vercel.app 
  * @returns equivalent to calling `useSWR(datasetIRI+".acl", () => getSolidDatasetWithAcl(datasetIRI))`
  */
-export function useSolidDatasetWithAcl(datasetIRI: string | null, options?: {
+export default function useSolidDatasetWithAcl(datasetIRI: string | null, options?: {
     swrConfig?: Parameters<typeof useSWR<SolidDatasetWithAcl>>[2]
     inruptConfig?: Parameters<typeof getSolidDatasetWithAcl>[1]
 }) {
