@@ -22,6 +22,7 @@ export default function NavDropdown() {
             <MenuLinkItem text="Manage Apps" href="/apps" />
             <MenuLinkItem text="Manage Files" href="/files" />
             <MenuLinkItem text="Home" href="/" />
+            <AuthItem />
           </Menu.Items>
         </div>
       </div>

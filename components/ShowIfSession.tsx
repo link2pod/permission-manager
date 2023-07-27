@@ -9,6 +9,7 @@ export default function ShowIfSession(props: {
 }){
   const {session, sessionRequestInProgress} = useSession()
   const isSession = session.info.isLoggedIn || sessionRequestInProgress
+  console.log(session)
 
   if (isSession == !props.showIfNotSession) 
     return props.children 
