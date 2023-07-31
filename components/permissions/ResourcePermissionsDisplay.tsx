@@ -1,18 +1,25 @@
 "use client"
 
+import ResourceAgentList from "./ResourceAgentList"
+import AddAgentAccessModes from "./universal/AddAgentAccessModes"
 import { useContext } from "react"
 import SelectedResourceContext from "@/lib/contexts/SelectedResourceContext"
+import Ipsum from "@/test/components/Ipsum"
 
 export default function ResourcePermissionsDisplay() {
   const { selectedResourceIRI } = useContext(SelectedResourceContext)
   return (
-    <div className="bg-blue-500 h-full">
-      <div className="sm:p-2 w-full truncate bg-base border bg-gray-50">
-        <h3>
-          {selectedResourceIRI}
-        </h3>
+    <div>
+      <div className="bg-base space-y-2 flex flex-wrap justify-center items-center lg:h-full">
+        <ResourceAgentList />
       </div>
-      
+      <div className={`${selectedResourceIRI ? "" : "hidden"} bg-gray-100`}>
+        <hr className="my-2" />
+        <h2 className="text-xl text-center my-2">Add permissions for new agent</h2>
+        <div className="w-5/6 bg-base drop-shadow-md mx-auto py-2">
+          <AddAgentAccessModes />
+        </div>
+      </div>
     </div>
   )
 }

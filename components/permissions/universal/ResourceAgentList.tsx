@@ -4,13 +4,13 @@ import { useContext } from "react";
 import SelectedResourceContext from "@/lib/contexts/SelectedResourceContext";
 import useGetAgentAccessAll from "@/lib/hooks/useGetAgentAccessAll";
 import { useSession } from "@inrupt/solid-ui-react"
-import { RectangleSkeleton } from "../Skeletons";
-import AgentAccessCard from "./universal/AgentAccessModesCard";
+import { RectangleSkeleton } from "../../Skeletons";
+import AgentAccessCard from "./AgentAccessModesCard";
 
 export default function ResourceAgentList() {
   const { selectedResourceIRI } = useContext(SelectedResourceContext)
   const { session } = useSession()
-  const { data, isLoading, mutate, isValidating } = useGetAgentAccessAll(
+  const { data, isLoading, isValidating } = useGetAgentAccessAll(
     selectedResourceIRI,
     { inruptConfig: { fetch: session.fetch } }
   )

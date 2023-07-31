@@ -1,6 +1,7 @@
 import Browser from '@/components/browser/Browser'
 import ContentPreview from '@/components/ContentPreview'
 import ResourcePermissionsDisplay from '@/components/permissions/ResourcePermissionsDisplay'
+import SelectedResourceIRI from '@/components/SelectedResourceIRI'
 
 export default function Home() {
 
@@ -12,8 +13,9 @@ export default function Home() {
         <Browser />
       </div>
       {/** fill rest of screen*/}
-      <div className='bg-gray-500 h-full w-full flex-auto flex flex-col'>
-        <div className='bg-gray-200 h-full flex-auto'><ResourcePermissionsDisplay /></div>
+      <div className='bg-gray-500 h-full w-full flex-auto flex flex-col overflow-auto lg:overflow-clip'>
+        <div className='h-12 flex-none'><SelectedResourceIRI/></div>
+        <div className='bg-base flex-auto overflow-auto lg:border lg:h-full'><ResourcePermissionsDisplay /></div>
         <div className='bg-black flex-auto'><ContentPreview /></div>
       </div>
     </main>
