@@ -5,6 +5,7 @@ import AgentAccessCard from "./AgentAccessCard";
 
 export default function ResourceAgentList(props: {
   agents: Record<string, Access>,
+  isDefaultAccess?: boolean,
   disabled?: boolean,
 }) {
 
@@ -17,6 +18,7 @@ export default function ResourceAgentList(props: {
               agentWebId={agentWebId}
               access={access}
               key={`_aac${agentWebId}`}
+              isDefaultAccess={props.isDefaultAccess}
               disabled={props.disabled}
             />
           </div>)

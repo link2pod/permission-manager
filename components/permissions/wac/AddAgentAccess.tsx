@@ -1,9 +1,5 @@
 "use client"
 
-import { useContext, useState } from "react";
-import { useSession } from "@inrupt/solid-ui-react";
-import useGetAgentAccessAll from "@/lib/hooks/useGetAgentAccessAll";
-import SelectedResourceContext from "@/lib/contexts/SelectedResourceContext";
 import AgentAccessCard from "./AgentAccessCard";
 
 const defaultAccess = {
@@ -13,21 +9,15 @@ const defaultAccess = {
   control: false,
 }
 
-export default function AddAgentAccess() {
-  const { selectedResourceIRI } = useContext(SelectedResourceContext)
-  const { session } = useSession()
-  const { mutate } = useGetAgentAccessAll(
-    selectedResourceIRI,
-    { inruptConfig: { fetch: session.fetch } }
-  )
-  const [agentId, setAgentId] = useState("http://new.com/new/profile/card#me")
+export default function AddAgentAccess(props: {
+  isDefaultAccess?: boolean,
+}) {
   return <AgentAccessCard
-    agentWebId={agentId}
+    agentWebId="http://domain/new/profile/card#me"
     access={
       defaultAccess
     }
-    handleAgentIdChange={setAgentId}
-    mutate={mutate}
+    isDefaultAccess={props.isDefaultAccess}
   />
 }
 

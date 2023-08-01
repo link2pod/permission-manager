@@ -28,14 +28,16 @@ export default function CheckboxList(props: {
           disabled={props.disabled}
         />)}
       </div>
-      <hr />
-      <div className="w-full flex justify-evenly">
-        <button onClick={() => props.onSubmit(object)}>Save</button>
-        <button onClick={() => {
-          setObject(props.object)
-        }}>Reset</button>
+      {!props.disabled && <>
+        <hr />
+        <div className="w-full flex justify-evenly">
+          <button onClick={() => props.onSubmit(object)}>Save</button>
+          <button onClick={() => {
+            setObject(props.object)
+          }}>Reset</button>
 
-      </div>
+        </div>
+      </>}
     </div>
   )
 }

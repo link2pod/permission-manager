@@ -1,22 +1,13 @@
 "use client"
 
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import SelectedResourceContext from "@/lib/contexts/SelectedResourceContext";
-import { 
-  Access, 
-  hasFallbackAcl, 
-  hasResourceAcl, 
-  hasAccessibleAcl,  
-  createAclFromFallbackAcl, 
-  getResourceAcl, 
-  setAgentResourceAccess,
-  saveAclFor,
-} from "@inrupt/solid-client";
-import { setAgentAccess } from "@inrupt/solid-client/universal";
+import { Access } from "@inrupt/solid-client";
 import { useSession } from "@inrupt/solid-ui-react";
 import EditableTextField from "../agentcardelements/EditableTextField";
 import CheckboxList from "../agentcardelements/CheckboxList";
 import useResourceAcl from "@/lib/hooks/useResourceACL";
+import defaultSaveAcl from "./defaultSaveAcl";
 //import Ipsum from "@/test/components/Ipsum";
 
 const accessDescription = {
@@ -29,52 +20,29 @@ const accessDescription = {
 export default function AgentAccessCard(props: {
   agentWebId: string,
   access: Access,
-  mutate?: (..._: any[]) => any,
+  isDefaultAccess?: boolean,
   disabled?: boolean,
-  handleAgentIdChange?: (newname: string) => any,
 }) {
   const { selectedResourceIRI } = useContext(SelectedResourceContext)
   const { session } = useSession()
-  const { data, mutate }
+  const { data, mutate, isValidating }
     = useResourceAcl(selectedResourceIRI, { inruptConfig: { fetch: session.fetch } })
+
+  const [agentWebId, setAgentWebId] = useState(props.agentWebId)
 
   const handleSubmit = async (newAccessObject: Record<string, boolean>) => {
     if (!data) return
-    if (!selectedResourceIRI) { return }
+    if (!selectedResourceIRI) return 
+    if (props.disabled) return 
     const newAccess = newAccessObject as Access
-    
-    let resourceAcl;
-    if (!hasResourceAcl(data)) {
-      if (!hasAccessibleAcl(data)) {
-        throw new Error(
-          "The current user does not have permission to change access rights to this Resource."
-        );
-      }
-      if (!hasFallbackAcl(data)) {
-        throw new Error(
-          "The current user does not have permission to see who currently has access to this Resource."
-        );
-      }
-      resourceAcl = createAclFromFallbackAcl(data);
-    } else {
-      resourceAcl = getResourceAcl(data);
-    }
 
-    const updatedAcl = setAgentResourceAccess(
-      resourceAcl,
-      props.agentWebId, 
-      newAccess
-    );
-
-    // Now save the ACL:
-    const savedAccess = await saveAclFor(data, updatedAcl);
-    if (!savedAccess) {
-      throw Error("Unable to save")
-    }
-    if (JSON.stringify(savedAccess) !== JSON.stringify(newAccess)) {
-      console.log(savedAccess, newAccess)
-      throw Error("Saved Data differ's from intended")
-    }
+    await defaultSaveAcl({
+      resource: data, 
+      agentWebId, 
+      access: newAccess, 
+      deleteAgentId: props.agentWebId,
+      config: {fetch: session.fetch},
+    })
     mutate()
   }
 
@@ -84,14 +52,10 @@ export default function AgentAccessCard(props: {
       <div className="w-full flex justify-center items-center h-10">
         <div className="font-semibold pr-2 flex-none">AgentId: </div>
         <div className="max-h-full overflow-x-auto whitespace-nowrap">
-          {
-            props.handleAgentIdChange
-              ? <EditableTextField
-                value={props.agentWebId}
-                onChange={props.handleAgentIdChange}
-              />
-              : props.agentWebId
-          }
+          {props.disabled ? agentWebId : <EditableTextField
+            value={agentWebId}
+            onChange={setAgentWebId}
+          />}
         </div>
       </div>
       <hr />
@@ -99,7 +63,7 @@ export default function AgentAccessCard(props: {
         object={props.access}
         onSubmit={handleSubmit}
         descriptions={accessDescription}
-        disabled={props.disabled}
+        disabled={isValidating || props.disabled}
       />
     </div>
   )
