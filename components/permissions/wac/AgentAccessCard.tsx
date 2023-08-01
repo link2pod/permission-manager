@@ -56,7 +56,7 @@ export default function AgentAccessCard(props: {
   return (
     <div className="w-full h-full">
       {/** webId title */}
-      <div className="w-full flex justify-center items-center h-10">
+      <div className="w-full flex justify-center items-center h-10 md:px-2">
         <div className="font-semibold pr-2 flex-none">AgentId: </div>
         <div className="max-h-full overflow-x-auto whitespace-nowrap">
           {props.disabled ? agentWebId : <EditableTextField

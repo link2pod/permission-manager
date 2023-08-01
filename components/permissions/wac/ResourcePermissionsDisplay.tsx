@@ -32,7 +32,6 @@ export default function ResourcePermissionsDisplay() {
   if (!data) return null
   const fallbackACL = getFallbackAcl(data)
   const resourceACL = getResourceAcl(data)
-  console.log(resourceACL, fallbackACL)
 
   if (!fallbackACL && !resourceACL) {
     return (
@@ -41,6 +40,7 @@ export default function ResourcePermissionsDisplay() {
       </div>
     )
   }
+  console.log(data, isContainer(data))
 
   if (resourceACL) {
     return (
@@ -89,7 +89,7 @@ export default function ResourcePermissionsDisplay() {
           </button>
         </div>
         <hr />
-        <SectionHeader text="Fallback Permissions" />
+        <SectionHeader text="Inherited Fallback Permissions" />
         <ResourceAgentList
           agents={getAgentDefaultAccessAll(fallbackACL)}
           disabled

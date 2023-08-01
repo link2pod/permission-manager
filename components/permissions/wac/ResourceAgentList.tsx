@@ -8,12 +8,15 @@ export default function ResourceAgentList(props: {
   isDefaultAccess?: boolean,
   disabled?: boolean,
 }) {
+  const agents = Object.entries(props.agents).sort(([aid],[bid])=>{
+    return aid.localeCompare(bid)
+  } )
 
   return (
-    <div className=" space-y-2 flex flex-wrap justify-center items-center">
+    <div className="flex flex-wrap justify-center items-center">
       {
-        Object.entries(props.agents).map(([agentWebId, access]) =>
-          <div className="w-fit h-fit bg-base drop-shadow-md py-2">
+        agents.map(([agentWebId, access]) =>
+          <div className="w-fit h-fit bg-base drop-shadow-md py-2 my-2 mx-2">
             <AgentAccessCard
               agentWebId={agentWebId}
               access={access}
