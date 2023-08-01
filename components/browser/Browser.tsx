@@ -3,7 +3,6 @@
 import { useSession } from "@inrupt/solid-ui-react"
 import PodList from "./PodList"
 import { RectangleSkeleton } from "../Skeletons"
-import Ipsum from "@/test/components/Ipsum"
 
 export default function Browser() {
   const { session, sessionRequestInProgress } = useSession()
@@ -25,7 +24,7 @@ export default function Browser() {
   return (
     <div className="h-full w-full flex flex-col">
       <div className="text-center truncate flex-none border-b py-2 sm:px-1">
-        Logged-in as {webId} <Ipsum />
+        Logged-in as {webId} 
       </div>
       <div className="h-full flex-auto overflow-auto text-gray-700">
         <PodList />

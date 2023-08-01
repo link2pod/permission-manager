@@ -4,7 +4,6 @@ import ResourceAgentList from "./ResourceAgentList"
 import AddAgentAccessModes from "./AddAgentAccessModes"
 import { useContext } from "react"
 import SelectedResourceContext from "@/lib/contexts/SelectedResourceContext"
-import Ipsum from "@/test/components/Ipsum"
 
 export default function ResourcePermissionsDisplay() {
   const { selectedResourceIRI } = useContext(SelectedResourceContext)

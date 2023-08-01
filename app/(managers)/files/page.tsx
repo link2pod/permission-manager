@@ -2,7 +2,6 @@ import Browser from '@/components/browser/Browser'
 import ContentPreview from '@/components/ContentPreview'
 import ResourcePermissionsDisplay from '@/components/permissions/wac/ResourcePermissionsDisplay'
 import SelectedResourceIRI from '@/components/SelectedResourceIRI'
-import Ipsum from '@/test/components/Ipsum'
 
 export default function Home() {
 

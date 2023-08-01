@@ -1,5 +1,5 @@
 import { Session } from "@inrupt/solid-client-authn-browser"
-import { getUrlPrefix } from "./getUrlPrefix"
+import { getResourceInfoWithAcl } from "@inrupt/solid-client"
 
 /**
  * Retrieves acl resource as advertized by the link, for=acl in HEAD request to given url.
@@ -33,6 +33,6 @@ export default async function getDefaultResourceAcl(url: string, config?: { fetc
         */
     })
     if (!aclIRI) return undefined
-    return authfetch(aclIRI)
+    getResourceInfoWithAcl
 }
 

@@ -27,6 +27,7 @@ export default function CheckboxList(props: {
           }}
           description={props.descriptions[type]}
           disabled={props.disabled}
+          key={type}
         />)}
       </div>
       <hr />

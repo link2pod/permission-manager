@@ -44,8 +44,9 @@ export default function PodList() {
     <div className="w-full" >
       {podsToDisplay.map((podIRI) =>
         <ContainerDropdown
-          IRI={podIRI} 
-          depth={0} 
+          key={podIRI}
+          IRI={podIRI}
+          depth={0}
         />
       )}
     </div>

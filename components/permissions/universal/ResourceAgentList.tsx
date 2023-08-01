@@ -22,11 +22,13 @@ export default function ResourceAgentList() {
   }
   if (data) {
     return Object.entries(data).map(([agentWebId, accessModes]) =>
-      <div className="w-fit h-fit bg-base drop-shadow-md py-2">
+      <div
+        className="w-fit h-fit bg-base drop-shadow-md py-2"
+        key={`_aac${agentWebId}`}
+      >
         <AgentAccessCard
           agentWebId={agentWebId}
           accessModes={accessModes}
-          key={`_aac${agentWebId}`}
           disabled={isValidating}
         />
       </div>
