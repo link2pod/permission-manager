@@ -17,6 +17,7 @@ export default function AddAgentAccess(props: {
     access={
       defaultAccess
     }
+    hideDelete
     isDefaultAccess={props.isDefaultAccess}
   />
 }

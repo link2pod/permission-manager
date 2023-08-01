@@ -10,7 +10,7 @@ export default function ResourceAgentList(props: {
 }) {
 
   return (
-    <div className="bg-base space-y-2 flex flex-wrap justify-center items-center">
+    <div className=" space-y-2 flex flex-wrap justify-center items-center">
       {
         Object.entries(props.agents).map(([agentWebId, access]) =>
           <div className="w-fit h-fit bg-base drop-shadow-md py-2">

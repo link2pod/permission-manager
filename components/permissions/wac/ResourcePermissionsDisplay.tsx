@@ -19,7 +19,7 @@ import defaultSaveAcl from "./defaultSaveAcl"
 export default function ResourcePermissionsDisplay() {
   const { selectedResourceIRI } = useContext(SelectedResourceContext)
   const { session } = useSession()
-  const { data, isLoading, mutate, isValidating } = useResourceAcl(
+  const { data, isLoading, mutate } = useResourceAcl(
     selectedResourceIRI,
     { inruptConfig: { fetch: session.fetch } }
   )
@@ -45,23 +45,24 @@ export default function ResourcePermissionsDisplay() {
   if (resourceACL) {
     return (
       <div>
+        <SectionHeader text="Resource Permissions" />
         <ResourceAgentList
           agents={getAgentResourceAccessAll(resourceACL)}
         />
-        <hr className="my-2" />
-        <h2 className="text-xl text-center my-2">Add permissions for new agent</h2>
+        <div className="w-full my-2" />
+        <h3 className="text-center text-lg my-2">Add Resource Permissions for New Agent </h3>
         <div className="w-5/6 bg-base drop-shadow-md mx-auto py-2">
           <AddAgentAccess />
         </div>
         {isContainer(data) &&
-          <div>
-            <hr className="my-2" />
-            <h2 className="text-xl text-center my-2">Set default permissions for members of this container</h2>
+          <div className="pt-2">
+            <SectionHeader text=" Set default permissions for members of this container " />
             <ResourceAgentList
               agents={getAgentDefaultAccessAll(resourceACL)}
               isDefaultAccess
             />
-            <h2 className="text-xl text-center my-2">Add permissions for new agent</h2>
+            <div className="w-full my-2" />
+            <h3 className="text-center text-lg my-2">Add Default Permissions for New Agent </h3>
             <div className="w-5/6 bg-base drop-shadow-md mx-auto py-2">
               <AddAgentAccess isDefaultAccess />
             </div>
@@ -88,7 +89,7 @@ export default function ResourcePermissionsDisplay() {
           </button>
         </div>
         <hr />
-        <h3>Fallback Permissions</h3>
+        <SectionHeader text="Fallback Permissions" />
         <ResourceAgentList
           agents={getAgentDefaultAccessAll(fallbackACL)}
           disabled
@@ -96,4 +97,14 @@ export default function ResourcePermissionsDisplay() {
       </div >
     )
   }
+}
+
+function SectionHeader(props: {
+  text: string,
+}) {
+  return (
+    <div className="w-full py-2 shadow-sm shadow-primary/10 mb-2 bg-gray-100">
+      <h2 className="text-xl text-center ">{props.text}</h2>
+    </div>
+  )
 }

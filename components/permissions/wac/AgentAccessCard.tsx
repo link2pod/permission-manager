@@ -22,6 +22,7 @@ export default function AgentAccessCard(props: {
   access: Access,
   isDefaultAccess?: boolean,
   disabled?: boolean,
+  hideDelete?: boolean,
 }) {
   const { selectedResourceIRI } = useContext(SelectedResourceContext)
   const { session } = useSession()
@@ -68,7 +69,7 @@ export default function AgentAccessCard(props: {
       <CheckboxList
         object={props.access}
         onSubmit={handleSubmit}
-        onDelete={handleDelete}
+        onDelete={props.hideDelete ? undefined : handleDelete}
         descriptions={accessDescription}
         disabled={isValidating || props.disabled}
       />
