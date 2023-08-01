@@ -46,6 +46,12 @@ export default function AgentAccessCard(props: {
     mutate()
   }
 
+  const handleDelete = async () => {
+    if (!data) return
+    await defaultSaveAcl({resource: data, deleteAgentId: agentWebId, config: {fetch: session.fetch}})
+    mutate()
+  }
+
   return (
     <div className="w-full h-full">
       {/** webId title */}
@@ -62,6 +68,7 @@ export default function AgentAccessCard(props: {
       <CheckboxList
         object={props.access}
         onSubmit={handleSubmit}
+        onDelete={handleDelete}
         descriptions={accessDescription}
         disabled={isValidating || props.disabled}
       />

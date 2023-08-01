@@ -2,16 +2,17 @@
 
 import { useState } from "react";
 import { RiCheckboxFill, RiCheckboxBlankLine } from "react-icons/ri";
-//import Ipsum from "@/test/components/Ipsum";
 
 
 export default function CheckboxList(props: {
   object: Record<string, boolean>,
   onSubmit: (e: Record<string, boolean>) => any,
+  onDelete?: () => any,
   descriptions: Record<string, string>,
   disabled?: boolean,
 }) {
   const [object, setObject] = useState(props.object)
+  const onDelete = props.onDelete
 
   return (
     <div className="w-full h-full ">
@@ -35,7 +36,7 @@ export default function CheckboxList(props: {
           <button onClick={() => {
             setObject(props.object)
           }}>Reset</button>
-
+          {onDelete && <button onClick={() => onDelete()}>Delete</button>}
         </div>
       </>}
     </div>
