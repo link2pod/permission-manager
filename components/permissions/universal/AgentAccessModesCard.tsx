@@ -5,10 +5,8 @@ import SelectedResourceContext from "@/lib/contexts/SelectedResourceContext";
 import { AccessModes } from "@inrupt/solid-client";
 import { setAgentAccess } from "@inrupt/solid-client/universal";
 import { useSession } from "@inrupt/solid-ui-react";
-import EditableTextField from "../agentcardelements/EditableTextField";
-import CheckboxList from "../agentcardelements/CheckboxList";
-import useGetAgentAccessAll from "@/lib/hooks/useGetAgentAccessAll";
-//import Ipsum from "@/test/components/Ipsum";
+import EditableTextField from "../../access-card-elements/EditableTextField";
+import CheckboxList from "../../access-card-elements/CheckboxList";
 
 const accessDescription = {
   read: "Read/view data",
