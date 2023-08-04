@@ -10,7 +10,7 @@ export default function MenuItem(props: {
     <Menu.Item >
       {({ active }) => (
         <div
-          className={`w-full p-1 rounded ${active && 'bg-primary text-white'}`}
+          className={`w-full p-1 rounded ${active && 'bg-primary text-white'} hover:cursor-pointer`}
           onClick={props.onClick}
         >
           {props.children}

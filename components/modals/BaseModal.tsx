@@ -17,7 +17,7 @@ export default function BaseModal(props: {
     <Dialog
       open={props.uncloseable ? true : isOpen}
       onClose={handleClose}
-      className="relative z-50"
+      className="relative z-40"
     >
       {/* The backdrop, rendered as a fixed sibling to the panel container */}
       <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
