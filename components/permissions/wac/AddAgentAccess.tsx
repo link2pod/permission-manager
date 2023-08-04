@@ -1,13 +1,7 @@
 "use client"
 
 import AgentAccessCard from "./AgentAccessCard";
-
-const defaultAccess = {
-  read: true,
-  write: true,
-  append: true,
-  control: false,
-}
+import { defaultAccess } from "./accessObjects";
 
 export default function AddAgentAccess(props: {
   isDefaultAccess?: boolean,

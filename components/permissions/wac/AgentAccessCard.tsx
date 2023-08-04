@@ -8,14 +8,7 @@ import EditableTextField from "../../access-card-elements/EditableTextField";
 import CheckboxList from "../../access-card-elements/CheckboxList";
 import useResourceAcl from "@/lib/hooks/useResourceACL";
 import defaultSaveAcl from "./defaultSaveAcl";
-//import Ipsum from "@/test/components/Ipsum";
-
-const accessDescription = {
-  read: "Read/view data",
-  append: "Add to a container",
-  write: "Add, Edit, and Delete resource",
-  control: "Control who can change permissions of the resource",
-}
+import { accessDescription } from "./accessObjects";
 
 export default function AgentAccessCard(props: {
   agentWebId: string,
