@@ -7,8 +7,6 @@ import { setAgentAccess } from "@inrupt/solid-client/universal";
 import { useSession } from "@inrupt/solid-ui-react";
 import EditableTextField from "../agentcardelements/EditableTextField";
 import CheckboxList from "../agentcardelements/CheckboxList";
-import useGetAgentAccessAll from "@/lib/hooks/useGetAgentAccessAll";
-//import Ipsum from "@/test/components/Ipsum";
 
 const accessDescription = {
   read: "Read/view data",

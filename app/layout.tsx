@@ -21,7 +21,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <SolidSessionContextProvider>
           {/** Drop-down menu showing login/logout, and link to managers */}
-          <div className='fixed top-0 right-0 h-10 w-10 mr-4 mt-4 z-10'>
+          <div className='fixed top-0 right-0 h-10 w-10 mr-4 mt-4 z-50'>
             <NavDropdown />
           </div>
           {children}
