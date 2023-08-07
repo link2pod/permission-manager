@@ -1,8 +1,8 @@
 import { getUrlPrefix } from "./getUrlPrefix"
 
 /**
- * Fetches rootContainer of the resource at url, according to the solid specification
- * Purpose is to find the rootStorage for a webID without pim:storage predicate in its profile 
+ * Fetches rootContainer of the resource at url, according to the algorithm defined at https://solidproject.org/TR/protocol#storage-resource 
+ * Purpose is to find the rootStorage for a webID without a pim:storage predicate in its profile 
  * @param url 
  * @returns 
  */

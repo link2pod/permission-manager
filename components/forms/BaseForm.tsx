@@ -3,6 +3,16 @@
 import { useRef, useState } from "react"
 import { BiError } from "react-icons/bi"
 
+/**
+ * Login-form component with `<input>` field and label styling. 
+ * - Calls `props.handleLogin` when user submits form. 
+ * - Render's error message if there's errors with the form, 
+ * or errors thrown from `props.handleLogin`
+ * - TODO: make error messages more user friendly
+ * @param props.handleLogin function called when user submits form
+ * . The function will recieve the string from the `input` field 
+ * @returns 
+ */
 export function BaseForm(props: {
   handleLogin: (value: string | undefined) => any,
   defaultValue?: string,

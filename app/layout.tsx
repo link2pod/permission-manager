@@ -11,6 +11,10 @@ export const metadata: Metadata = {
   description: 'Manage permissions of apps and files in your pod',
 }
 
+/**
+ * render body of page, nav/menu button, and SolidSessionProvider
+ * @link /lib/contexts/SolidSessionContext.tsx
+ */
 export default function RootLayout({
   children,
 }: {

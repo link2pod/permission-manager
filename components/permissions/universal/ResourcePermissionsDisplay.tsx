@@ -5,6 +5,11 @@ import AddAgentAccessModes from "./AddAgentAccessModes"
 import { useContext } from "react"
 import SelectedResourceContext from "@/lib/contexts/SelectedResourceContext"
 
+/**
+ * Display 
+ * - AccessModes of all Agents for the currently selectedResourceIRI 
+ * - Card to add AccessModes for a new Agent
+ */
 export default function ResourcePermissionsDisplay() {
   const { selectedResourceIRI } = useContext(SelectedResourceContext)
   return (

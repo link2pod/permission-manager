@@ -8,7 +8,7 @@ type useSWRParams
     = Parameters<typeof useSWR<Awaited<ReturnType <typeof getAgentAccessAll>>>>
 
 /**
- * Wrapper for useSWR that fetches agent access permissions for a resource using getAgetnAccesAll. 
+ * Wrapper for useSWR that fetches agent access permissions for a resource using getAgentAccessAll. 
  * Automatically uses getDefaultSession().fetch(), unless otherwise specified
  * @param key useSWR key (first parameter of useSWR)
  * @param options.swrConfig config for useSWR (third parameter of useSWR). 

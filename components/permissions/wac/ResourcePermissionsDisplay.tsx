@@ -15,7 +15,21 @@ import useResourceAcl from "@/lib/hooks/useResourceACL"
 import { RectangleSkeleton } from "../../Skeletons"
 import ResourceAgentList from "./ResourceAgentList"
 import defaultSaveAcl from "./defaultSaveAcl"
-
+/**
+ * 
+ * @returns loading/not-found components if data-fetching. 
+ * After fetching, if no resourceACL is found, show  
+ * - Button to generate ACL from fallbackACL 
+ * - Preview of defaultACL from fallbackACL 
+ * 
+ * If resourceACL is found, show 
+ * - Preview of Agents and their Accesses
+ * - Card to add Access for new agent 
+ * 
+ * If resource is a container, also shows 
+ *    - Preview of children access ACL
+ *    - Card to add Default Access for its children 
+ */
 export default function ResourcePermissionsDisplay() {
   const { selectedResourceIRI } = useContext(SelectedResourceContext)
   const { session } = useSession()
@@ -40,7 +54,6 @@ export default function ResourcePermissionsDisplay() {
       </div>
     )
   }
-  console.log(data, isContainer(data))
 
   if (resourceACL) {
     return (

@@ -12,6 +12,9 @@ const OIDCIssuers = [
   'https://css.eastus2.cloudapp.azure.com/',
 ]
 
+/**
+ * Render form to login with OIDC issuer
+ */
 export default function OIDCIssuerForm() {
   const handleSubmit = async (oidcIssuer: string | undefined) => {
     if (!oidcIssuer) {

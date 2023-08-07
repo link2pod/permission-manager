@@ -7,6 +7,11 @@ import { useSession } from "@inrupt/solid-ui-react"
 import { RectangleSkeleton } from "../../Skeletons";
 import AgentAccessCard from "./AgentAccessModesCard";
 
+/**
+ * Reads from `SelectedResourceContext`
+ * @returns Agent accessModes for the currenlty selected resource 
+ * rendered as a list of `AgentAccessModesCard` components
+ */
 export default function ResourceAgentList() {
   const { selectedResourceIRI } = useContext(SelectedResourceContext)
   const { session } = useSession()

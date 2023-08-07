@@ -18,7 +18,23 @@ import {
 } from "@inrupt/solid-client";
 import { ACL } from "@inrupt/vocab-solid";
 
-
+/**
+ * Implements logic described at https://docs.inrupt.com/developer-tools/javascript/client-libraries/tutorial/manage-wac/ 
+ * @param args.resource ResourceInfo or SolidDatasetWithAcl to modify acl
+ * @param args.config Inrupt config. Usually object with authenticated fetch function
+ * @param args.deleteAgentId when specified, deletes the agentId's webId from ACL dataset 
+ * @param args.agentWebId when specified, modifies the `args.resource` acl dataset so that 
+ * the agent's access controls match `args.access`. 
+ * Requires `args.access` to be provided
+ * @param args.access when specified, modifies the `args.resource` acl dataset so that 
+ * `args.agentWebId` has the specified Access. 
+ * Requires `args.agentWebId` to be provided
+ * @param args.isDefaultAccess if true, set's default access (i.e. access for children of container). 
+ * Reference https://solid.github.io/web-access-control-spec/#acl-default 
+ * - Requires `args.access` to be provided
+ * - Requires `args.agentWebId` to be provided
+ * @returns saved ACL dataset
+ */
 export default async function defaultSaveAcl(args: {
   resource: Awaited<ReturnType<typeof getResourceInfoWithAcl>>,
   config?: Parameters<typeof saveAclFor>[2],

@@ -1,3 +1,8 @@
+"use client"
+
+/**
+ * shows text in an editable input element 
+ */
 export default function EditableTextField(props: {
   value: string, 
   onChange: (text: string) => any,

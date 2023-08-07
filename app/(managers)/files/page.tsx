@@ -3,12 +3,14 @@ import ContentPreview from '@/components/ContentPreview'
 import ResourcePermissionsDisplay from '@/components/permissions/wac/ResourcePermissionsDisplay'
 import SelectedResourceIRI from '@/components/SelectedResourceIRI'
 
+/**
+ * Renders and formats `Browser`, `SelectedResourceIRI` and `ResourcePermissionDisplay` components. 
+ * Also transforms from single-page view to side-by-side view depending on browser size. 
+ */
 export default function Home() {
-
-
   return (
     <main className="h-full w-full flex flex-col lg:flex-row">
-      {/** resizeable div for browser */}
+      {/** TODO: make resizeable */}
       <div className=' w-full h-1/2 flex-none lg:h-full lg:w-1/3 overflow-auto'>
         <Browser />
       </div>

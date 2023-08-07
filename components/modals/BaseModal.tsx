@@ -4,6 +4,12 @@ import { ReactNode, useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { IoCloseCircleOutline } from 'react-icons/io5'
 
+/**
+ * Render default modal. 
+ * @param props.title title of modal 
+ * @param props.uncloseable set to true to prevent modal from being closed
+ * @returns 
+ */
 export default function BaseModal(props: {
   children: ReactNode,
   title?: string,

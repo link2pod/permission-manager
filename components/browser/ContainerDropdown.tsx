@@ -10,6 +10,13 @@ import Dropdown from "./Dropdown"
 import ItemText from "./ItemText"
 import BrowserItem from "./BrowserItem"
 
+/**
+ * On dropdown, fetch and cache container resource dataset. 
+ * Renders Dropdown contents based on data-fetch state. 
+ * Recursively renders things in the resource (as BrowserItems)
+ * @param props.IRI iri of container to render
+ * @returns 
+ */
 export default function ContainerDropdown(props: {
     IRI: string,
     depth: number,

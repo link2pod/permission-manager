@@ -4,6 +4,11 @@ import { useSession } from "@inrupt/solid-ui-react"
 import PodList from "./PodList"
 import { RectangleSkeleton } from "../Skeletons"
 
+/**
+ * 
+ * @returns Solid Session status if logging-in or not-logged-in. 
+ * If logged-in, show webId and renders list of pods
+ */
 export default function Browser() {
   const { session, sessionRequestInProgress } = useSession()
 
