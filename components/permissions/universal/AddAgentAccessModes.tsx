@@ -14,6 +14,9 @@ const defaultModes = {
   controlWrite: false,
 }
 
+/**
+ * @returns Card to add AccessModes for a new agent
+ */
 export default function AddAgentAccessModes() {
   const { selectedResourceIRI } = useContext(SelectedResourceContext)
   const { session } = useSession()

@@ -6,6 +6,12 @@ import { useSession } from "@inrupt/solid-ui-react"
 import useSWR from 'swr'
 import ContainerDropdown from "./ContainerDropdown"
 
+/**
+ * Fetch list of pods from currently logged-in User's webId 
+ * Also finds root-pod of webID. 
+ * Renders each item as a ContainerDropdown component
+ * @returns 
+ */
 export default function PodList() {
   const { session } = useSession()
 

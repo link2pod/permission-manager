@@ -17,6 +17,11 @@ const accessDescription = {
   control: "Control who can change permissions of the resource",
 }
 
+/**
+ * 
+ * @link ../agentcardelements/EditableTextField.tsx
+ * @returns Card with agent's webId and their AccessModes as toggleable checkboxes
+ */
 export default function AgentAccessCard(props: {
   agentWebId: string,
   access: Access,

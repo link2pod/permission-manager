@@ -9,6 +9,9 @@ const defaultAccess = {
   control: false,
 }
 
+/**
+ * @returns Card to add WAC Access for a new agent
+ */
 export default function AddAgentAccess(props: {
   isDefaultAccess?: boolean,
 }) {

@@ -8,7 +8,7 @@ type useSWRParams
     = Parameters<typeof useSWR<Awaited<ReturnType <typeof getResourceInfoWithAcl>>>>
 
 /**
- * Wrapper for useSWR that fetches agent access permissions for a resource using getAgetnAccesAll. 
+ * Wrapper for useSWR that fetches agent access permissions for a resource using getResourceInfoWithAcl. 
  * Automatically uses getDefaultSession().fetch(), unless otherwise specified
  * @param key useSWR key (first parameter of useSWR)
  * @param options.swrConfig config for useSWR (third parameter of useSWR). 
@@ -17,7 +17,7 @@ type useSWRParams
  * By default, fetcher will use getDefaultSession()
  * (i.e. currently authenticated session's fetch function)
  * @link https://swr.vercel.app 
- * @returns provides everything from `useSWR(key, () => getResourceAcl(getAgentAccessAll(key)))`
+ * @returns provides everything from `useSWR(key, () => getResourceInfoWithAcl(key))`
  */
 export default function useResourceAcl(key: string | null | undefined, options?: {
     swrConfig?: useSWRParams[2]

@@ -1,6 +1,10 @@
 import OIDCIssuerForm from "./OIDCIssuerForm";
 import WebIdLoginForm from "./WebIdForm";
 
+/**
+ * Render webID and OIDCIssur login forms
+ * @returns 
+ */
 export default function LoginForms() {
   return (
     <div className="w-full h-full py-4 bg-base drop-shadow-md rounded flex flex-col justify-between">

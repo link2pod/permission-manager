@@ -1,11 +1,14 @@
 "use client"
 
 import Link from "next/link"
-import { useState } from "react"
 import MenuItem from "./MenuItem"
 import AuthItem from "./AuthItem"
 import { Menu } from "@headlessui/react"
 
+/**
+ * @returns Nav/Menu button, and it's dropdown contents when clicked
+ * @link https://headlessui.com/react/menu 
+ */
 export default function NavDropdown() {
   return (
     <Menu>
@@ -30,6 +33,11 @@ export default function NavDropdown() {
   )
 }
 
+/**
+ * @param props.text displayed text
+ * @param props.href url to redirect to
+ * @returns Render item in the dropdown menu to redirect to `props.href`
+ */
 function MenuLinkItem(props: {
   text: string,
   href: string,
@@ -43,6 +51,11 @@ function MenuLinkItem(props: {
   )
 }
 
+/**
+ * set color using text-color (E.g. `hover:text-white`) css class
+ * @param props.className additional css classes to apply 
+ * @returns SVG of menu icon as a ReactJS component
+ */
 function MenuIcon(props: {
   className?: string,
 }) {

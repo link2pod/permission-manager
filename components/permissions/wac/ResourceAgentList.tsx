@@ -3,6 +3,11 @@
 import { Access } from "@inrupt/solid-client"
 import AgentAccessCard from "./AgentAccessCard";
 
+/**
+ * render list of agents and their accesses as `AgnentAccessCard`s that can be edited
+ * @param props.agents record of webId keys and their corresponding Access objects
+ * @returns 
+ */
 export default function ResourceAgentList(props: {
   agents: Record<string, Access>,
   isDefaultAccess?: boolean,

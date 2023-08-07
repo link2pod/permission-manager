@@ -1,7 +1,9 @@
 import { ReactNode } from "react"
 import { Menu } from "@headlessui/react"
-import Link from "next/link"
 
+/**
+ * Default styling for an item in the nav/menu dropdown 
+ */
 export default function MenuItem(props: {
   children?: ReactNode,
   onClick?: () => any,

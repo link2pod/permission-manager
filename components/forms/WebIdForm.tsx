@@ -5,6 +5,10 @@ import { SOLID } from "@inrupt/vocab-solid"
 import handleLogin from "./HandleInput"
 import { BaseForm } from "./BaseForm"
 
+/**
+ * Form that handles logging-in using webId. 
+ * TODO: test if it works. 
+ */
 export default function WebIdLoginForm() {
   const handleSubmit = async (webId: string | undefined) => {
     if (!webId) {

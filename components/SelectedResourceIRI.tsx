@@ -4,7 +4,8 @@ import { useContext } from "react"
 import SelectedResourceContext from "@/lib/contexts/SelectedResourceContext"
 
 /**
- * Display's IRI of currently selected resource 
+ * Display's IRI of currently selected resource as set in nearest `SelectedResourceContext.Provider`
+ * @link /lib/contexts/SelectedResourceContext.ts
 */
 export default function SelectedResourceIRI() {
   const { selectedResourceIRI } = useContext(SelectedResourceContext)

@@ -16,6 +16,14 @@ const accessDescription = {
   controlWrite: "Control who can change permissions of the resource",
 }
 
+/**
+ * 
+ * @param props.mutate useSWR mutate function to revalidate data
+ * @param props.handleAgentIdChange when supplied, renders `props.agentWebId` as 
+ * `EditableTextField` and calls the function when the webId is changed. 
+ * @link ../agentcardelements/EditableTextField.tsx
+ * @returns Card with agent's webId and their AccessModes as toggleable checkboxes
+ */
 export default function AgentAccessModesCard(props: {
   agentWebId: string,
   accessModes: AccessModes,

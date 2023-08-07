@@ -3,11 +3,16 @@ import LoginForms from "@/components/forms/LoginForms";
 import Link from "next/link";
 import { ReactNode } from "react";
 
+/**
+ * Landing page. Render link to File permission manager and App-permission manager
+ * Shows login-form if user is not logged in. 
+ */
 export default function Home() {
   return (
     <main className="w-full pt-8 sm:w-5/6 md:w-3/4 mx-auto">
       {/**Link to managers */}
       <div className="w-full grid md:grid-cols-2 md:space-x-2 justify-evenly sm:px-2">
+        {/** TODO: Add preview images */}
         <ManagerCard
           title="Apps Manager"
           description="Control which applications can act on behalf of you, and what permissions they control"
@@ -29,6 +34,10 @@ export default function Home() {
   )
 }
 
+/**
+ * Card that renders the permission managers (file, app) in user-friendly fashion
+ * TODO: render preview/images 
+ */
 function ManagerCard(props: {
   title: string,
   description: string,
